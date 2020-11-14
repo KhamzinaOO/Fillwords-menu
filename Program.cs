@@ -1,7 +1,49 @@
-﻿using System;
+using System;
 
-namespace FillwordMenu
+namespace menu
 {
+    public class Menu
+    {
+        public Menu(int i)
+        {
+            if (i == 1)
+            {
+                NewGame();
+            }
+            else if (i == 2)
+            {
+                Continue();
+            }
+            else if (i == 3)
+            {
+                Rating();
+            }
+            else if (i == 4)
+            {
+                Exit();
+            }
+        }
+        private static void NewGame()
+        {
+            Console.Clear();
+            Console.WriteLine("Функция <<новая игра>> скоро появится");
+        }
+        private static void Continue()
+        {
+            Console.Clear();
+            Console.WriteLine("Функция <<продолжить>> скоро появится");
+        }
+        private static void Rating()
+        {
+            Console.Clear();
+            Console.WriteLine("Функция <<рейтинг>> скоро появится");
+        }
+        private static void Exit()
+        {
+            Console.Clear();
+            Console.WriteLine("Функция <<выход>> скоро появится");
+        }
+    }
     class Program
     {
         private static string[] Menu()
@@ -14,6 +56,7 @@ namespace FillwordMenu
             menu[4] = "            выход";
             return menu;
         }
+
         private static void GetMenuItem(string[] array)
         {
             ConsoleKeyInfo key;
@@ -38,6 +81,10 @@ namespace FillwordMenu
                     y--;
                 if (key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.S)
                     y++;
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    var action = new Menu(y);
+                }
 
                 if (y < 1) y = 4;
                 if (y > 4) y = 1;
@@ -54,4 +101,5 @@ namespace FillwordMenu
                 Console.WriteLine(menu[i]);
             }
         }
+    }
 }
