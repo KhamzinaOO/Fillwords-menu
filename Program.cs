@@ -26,7 +26,8 @@ namespace menu
         private static void NewGame()
         {
             Console.Clear();
-            Console.WriteLine("Функция <<новая игра>> скоро появится");
+            Console.WriteLine("Введите имя:");
+            Console.ReadLine();
         }
         private static void Continue()
         {
