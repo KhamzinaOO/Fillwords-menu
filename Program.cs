@@ -97,10 +97,7 @@ namespace menu
         static void Main(string[] args)
         {
             string[] menu = Menu();
-            for (int i=0;i<menu.Length;i++)
-            {
-                Console.WriteLine(menu[i]);
-            }
+            GetMenuItem(menu);
         }
     }
 }
