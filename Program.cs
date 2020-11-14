@@ -14,6 +14,38 @@ namespace FillwordMenu
             menu[4] = "            выход";
             return menu;
         }
+        private static void GetMenuItem(string[] array)
+        {
+            ConsoleKeyInfo key;
+            int y = 1;
+
+            do
+            {
+                Console.Clear();
+                for (int i = 0; i < array.Length; i++)
+                {
+                    Console.WriteLine(array[i]);
+                }
+
+                Console.SetCursorPosition(0, y);
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(array[y]);
+                Console.ForegroundColor = ConsoleColor.Gray;
+
+                key = Console.ReadKey();
+                if (key.Key == ConsoleKey.UpArrow || key.Key == ConsoleKey.W)
+                    y--;
+                if (key.Key == ConsoleKey.DownArrow || key.Key == ConsoleKey.S)
+                    y++;
+
+                if (y < 1) y = 4;
+                if (y > 4) y = 1;
+
+            }
+            while (key.Key != ConsoleKey.Enter);
+        }
+
         static void Main(string[] args)
         {
             string[] menu = Menu();
@@ -22,5 +54,4 @@ namespace FillwordMenu
                 Console.WriteLine(menu[i]);
             }
         }
-    }
 }
